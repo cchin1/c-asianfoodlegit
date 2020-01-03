@@ -1,7 +1,23 @@
+//server.js
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3000;
 const app = express();
+
+/* Potential other code for server.js
+const http = require('http'),
+      server = http.createServer();
+
+server.on('request',(request,response)=>{
+   response.writeHead(200,{'Content-Type':'text/plain'});
+   response.write('Hello world');
+   response.end();
+});
+
+server.listen(3000,()=>{
+  console.log('Node server created at port 3000');
+});
+*/
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
