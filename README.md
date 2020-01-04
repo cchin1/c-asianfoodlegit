@@ -25,6 +25,18 @@ TBD
 
 ## Backend API
 
+You might want to document the backend API before creating it (optional). Either way it would be good do document the routes and their input and output so that other team members know how to use the backend.
+
+You also want to document how other team members can run the backend. That is, if I'm working on the front end, I need to know how I can run the backend so that I can connect to it and test my React project.
+
+Give the commands and instructions. For example:
+ * Install MySQL
+ * Create the schema named `asianfoodlegit` and give the root user the password `fakeDevPassword111` (it's OK to check-in fake development passwords that are only used on your local machine).
+ * run `npm run do:db:migrations` (create a script that will run the sequalize command line program and run the db migrations)
+ * run `npm run server:local:dev`
+
+ The above are just an example. The idea is that you tell your teammates how to run the server for local development.
+
 ##### `/user/{userID}`
 
 This returns the user information for user "userID".
