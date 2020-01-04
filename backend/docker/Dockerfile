@@ -1,0 +1,3 @@
+FROM mysql
+
+MYSQL_ROOT_PASSWORD=JS123$$$

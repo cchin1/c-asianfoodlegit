@@ -23,6 +23,39 @@ TBD
 * Must not expose sensitive API key information on the server
 (Optional Bonus) Allow for or involve the authentication of users in some way
 
+## Backend API
+
+##### `/user/{userID}`
+
+This returns the user information for user "userID".
+Example GET /user/8947 might return:
+
+```json
+{
+	"username": "candice",
+	"userID": "8947",
+	"sdfg": "dfgkj"
+}
+```
+
+PUT /user takes the following input:
+
+```json
+{
+    "username": "candice",
+	"sdfg": "dfgkj"
+}
+```
+And returns the full user like a GET would return.
+
+### Sequelize
+
+Use the CLI to create "migrations".
+Migrations are things that alter the database schema.
+You use the CLI to RUN the migrations.
+
+When you create a migration, a file will be "stubbed out".
+
 ## Installation
 TBD
 
