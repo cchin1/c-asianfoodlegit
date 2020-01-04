@@ -60,13 +60,40 @@ PUT /user takes the following input:
 ```
 And returns the full user like a GET would return.
 
-### Sequelize
+### Sequelize Workflow
 
-Use the CLI to create "migrations".
-Migrations are things that alter the database schema.
-You use the CLI to RUN the migrations.
+The purpose of Sequelize is to generate the SQL and JavaScript code necessary such that all team members can have the exact same database locally when developing, and that exact same database can be automatically created in production. This is done by creating 'migrations' and mapping them to JavaScript code for selecting/updating/inserting/deleting things from/to the database, and automatically 'serializing' and 'deserializing' these from/to JavaScript objects.
 
-When you create a migration, a file will be "stubbed out".
+The database schema is created and altered by **Database Migrations**. A Database Migration is a set of Data Definition Language (DDL) changes to the schema that will take alter the database from a previous version.
+
+For example, if you run database migrations 1, 2, and 3. Then the database schema is in "Version 3". If you then need to add a column to the Users table, you can create database migration 4 which will create that new column in the database.
+
+When you tell Sequalize to 'run the database migrations', it will check the database's current version, and run only those migrations necessary. So if your database is in version 3, then only version 4 will run.  But if your database is in version 1, then 2, 3 and 4 will run.
+
+In general, the workflow for using this type of system is as follows.
+
+##### Use the command line program to 'stub out' the files for a new database migration.
+
+You run some command, like `npx sequalize create:migration` (not the real command, read the documentation). the Sequelize program will create several files. These files represent a database migration. So in our example above, if we needed to add a user column, we would create a migration for that, and some files would be stubbed out.
+
+##### Edit the stubbed out files
+
+You go to the appropriate files that were created by sequelize, and you edit them. In our example above, we would go to some stubbed out file, and write the code necessary to add a field (i.e. column) to the User 'model'.
+
+##### Run the database migrations
+
+Once we made the change to the stubbed out files, we would run the database migrations with the sequelize program, e.g. `npx sequelize run:migrations` (again, made up, see documentation). The command will connect to the database and run the necessary DDL SQL to alter the database schema as you desired.
+
+## Directory Structure
+
+Be careful. As things currently exist, you have database stuff inside of a top-level directory called 'client'. This seems wrong. You actually have two very separate projects, the Frontend (React) and the Backend (Node.js). These should probably live in two separate top level directories. (Client means frontend, i.e. React)
+
+```
+client
+  - package.json (for the react project)
+backend
+  - package.json (for the backend project)
+```
 
 ## Installation
 TBD
