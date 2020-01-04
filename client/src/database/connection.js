@@ -4,7 +4,7 @@
 var Sequelize = require("sequelize");
 
 //Setting up the config - note that Candice's password is currently included here 
-var Sequelize = new Sequelize("asainfoodlegit", "root", "JS123$$$", {
+var Sequelize = new Sequelize("asianfoodlegit", "root", "JS123$$$", {
     host: "127.0.0.1",
     dialect: "mysql",
     port: 3306,
