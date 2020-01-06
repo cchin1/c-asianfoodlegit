@@ -20,6 +20,3 @@ class App extends Component {
 
 export default App;
 
-// To require connection module to connect to the database and expose 
-// the connection instance globally
-require("./src/database/connection");

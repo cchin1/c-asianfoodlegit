@@ -19,6 +19,11 @@ server.listen(3000,()=>{
 });
 */
 
+// TODO
+// To require connection module to connect to the database and expose 
+// the connection instance globally
+// require("./src/database/connection");
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
